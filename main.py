@@ -713,7 +713,7 @@ async def seach_profile_step3(message: types.Message, state: FSMContext):
 				if str(social_link_profile_selfq) != "None":
 					keyboard_selfq.add(types.InlineKeyboardButton(text="Ссылка на соц.сети", url=str(social_link_profile_selfq)))
 				photo_profile_selfq = open('photo_user/' + last_pr + '.jpg','rb')
-				final_text_profile_selfq = f'Тобой кто то заинтересовался!{tags_profileq}\n{name_profile_selfq}, {age_profile_selfq}, {city_profileq}\n\n{description_profile_selfq}\n\nЧего ты ждёшь,беги знакомиться - @{last_pr}'
+				final_text_profile_selfq = f'Тобой кто то заинтересовался!{tags_profileq}\n{name_profile_selfq}, {age_profile_selfq}, {city_profileq}\n\n{description_profile_selfq}\n\nЧего ты ждёшь,беги знакомиться - @{yq}'
 				await bot.send_photo(message.from_user.id,photo_profile_selfq,caption=final_text_profile_selfq, reply_markup=keyboard_selfq)
 
 			#return
