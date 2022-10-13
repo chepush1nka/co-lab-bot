@@ -1,0 +1,10 @@
+[Unit]
+Description=Simplified simple zebra service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/chepush1nka/projects/co-lab-bot
+ExecStart=/home/chepush1nka/projects/co-lab-bot/./launch.sh
+StandardOutput=syslog
+StandardError=syslog
+
