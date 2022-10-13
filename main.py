@@ -358,7 +358,7 @@ async def edit_profile(message : types.Message):
 			edit_profile.row(button_cancel)
 			#print(db.all_profile(str(message.from_user.id))[0])
 			tg_id, tg_username, name, description, city, ph, sex, age, social_link, rating, tags = db.all_profile(str(message.from_user.id))[0]
-			caption = str(tags) + '\n' + str(name).title() + ', ' + str(age) + ', ' + str(city).title() +'\n\n' + str(description).title()
+			caption = str(tags) + '\n' + str(name).title() + ', ' + str(age) + ', ' + str(city).title() +'\n\n' + str(description)
 			await message.answer_photo(photo,caption=caption,reply_markup=edit_profile)
 			await message.answer('Твоя анкета',reply_markup=edit_profile)
 			photo.close()
@@ -674,7 +674,7 @@ def profileGen(message: types.Message, profile_id: str, keyboard: types.InlineKe
 		if str(social_link_profile) != "None":
 			keyboard.add(types.InlineKeyboardButton(text="Ссылка на соц.сети", url=str(social_link_profile)))
 		photo_profile = open('photo_user/' + str(profile_id) + '.jpg','rb')
-		final_text_profile = str(tags_profile)  + '\n' + str(name_profile ).title() + ', ' + str(age_profile ) + ', ' + str(city_profile).title() +'\n\n' + str(description_profile ).title()
+		final_text_profile = str(tags_profile)  + '\n' + str(name_profile ).title() + ', ' + str(age_profile ) + ', ' + str(city_profile).title() +'\n\n' + str(description_profile)
 
 		return final_text_profile, keyboard
 	except Exception as e:
@@ -826,7 +826,7 @@ async def rating_profile(message : types.Message):
 		for i in db.top_rating():
 			for d in i:
 				top_count +=1
-				rofl_list = ['\nебааа#ь ты жёсткий😳','\nвасап👋','\nбро полегче там😮','\nгений🧠','\nреспект🤟']
+				rofl_list = ['\#ь ты жёсткий😳','\nвасап👋','\nбро полегче там😮','\nгений🧠','\nреспект🤟']
 				final_top = final_top + str(top_count) + ' место - ' + str(db.get_info(str(d))[3]).title() + ' из города ' + str(db.get_info(str(d))[5]).title() +  rofl_list[top_count-1] + '\n'
 		await message.answer(f'Рейтинг самых популярных в этом чат боте😎\nОчки рейтинга получаются с помощью активностей\n\n{final_top}')
 	except Exception as e:
